@@ -27,9 +27,10 @@
             </tr>
             </tbody>
           </table>
-          <nuxt-link to="./pengunjung/tambah">
-            <button type="submit" class="btn btn-secondary btn-lg rounded-5 px-5">KEMBALI</button>
+          <nuxt-link to="/">
+            <button type="submit" class="form-kirim btn btn-secondary btn-lg rounded-5 px-5">kembali</button>
           </nuxt-link>
+          
         </div>
       </div>
     </div>
@@ -41,7 +42,7 @@
   const visitors = ref ([])
   
   const getPengunjung = async () => {
-    const { data, error } = await supabase.from('pengunjung').select('*, keanggotaan(*), keperluan(*)')
+    const { data, error } = await supabase.from('pengunjung').select(`*, Keanggotaan(*), Keperluan(*)`)
     if(data) visitors.value = data
   }
   

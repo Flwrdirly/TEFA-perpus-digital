@@ -24,17 +24,20 @@
         <h2 class="mt-5" style="margin-left: 150px;">STATISTIK</h2>
         <div class="row my-5 justify-content-around">
           <div class="col-lg-5">
-            <div class="card bg-spengunjung rounded-5">
+            
+              <div class="card bg-spengunjung rounded-5">
               <div class="card-body">
                 <div class="row">
-                  <div class="col p-5"><h1 style="font-size: 120px;">5</h1></div>
-                  <div class="col mt-5 p-5"><h2 style="margin-right: 200px;">Pengunjung</h2></div>
+                  <div class=" form-pengunjung col p-5"><h1 style="font-size: 120px; ">5</h1></div>
+                  <div class="form-pengunjung col mt-5 p-5"><h2 style="margin-right: 200px;">Pengunjung</h2></div>
                 </div>
               </div>
             </div>
+            
           </div>
   
         <div class="col-lg-5">
+       
             <div class="card bg-sbuku rounded-5">
               <div class="card-body">
                 <div class="row">
@@ -43,11 +46,14 @@
                 </div>
               </div>
             </div>
+         
           </div>
         </div>
     </div>
       <div>
-        <Chart />
+        <div class="line">
+          <Statistik></Statistik>
+        </div>
       </div>
   </template>
   
@@ -85,4 +91,5 @@
     background-size: cover;
     opacity: 60%;
   }
+
   </style>
