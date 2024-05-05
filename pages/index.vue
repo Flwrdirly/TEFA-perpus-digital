@@ -28,8 +28,8 @@
               <div class="card bg-spengunjung rounded-5">
               <div class="card-body">
                 <div class="row">
-                  <div class=" form-pengunjung col p-5"><h1 style="font-size: 120px; ">5</h1></div>
-                  <div class="form-pengunjung col mt-5 p-5"><h2 style="margin-right: 200px;">Pengunjung</h2></div>
+                  <div class=" form-pengunjung col p-5"></div>
+                  <div class="form-pengunjung col mt-5 p-5"><h2 style="font-size: 70px; margin-right: 80px "><span class="no">{{ jml_pengunjung }}</span>Pengunjung</h2></div>
                 </div>
               </div>
             </div>
@@ -41,12 +41,11 @@
             <div class="card bg-sbuku rounded-5">
               <div class="card-body">
                 <div class="row">
-                  <div class="col p-5"><h1 style="font-size: 120px; margin-right: 200px">180</h1></div>
-                  <div class="col mt-5 p-5"><h2 style="font-family: ">Buku</h2></div>
+                  <div class="col p-5"></div>
+                  <div class="col mt-5 p-5"><h2 style="font-size: 70px; margin-right: 200px"><span class="no">{{ jml_buku }}</span>Buku</h2></div>
                 </div>
               </div>
             </div>
-         
           </div>
         </div>
     </div>
@@ -56,6 +55,32 @@
         </div>
       </div>
   </template>
+
+  <script setup>
+  const supabase = useSupabaseClient()
+  const jml_pengunjung = ref(0)
+  const jml_buku = ref(0)
+
+  async function getjml_pengunjung() {
+    const{error, data, count } = await supabase
+    .from("pengunjung")
+    .select('*', {count: 'exact' })
+    if (count) jml_pengunjung.value = count
+  }
+
+  async function getjml_buku() {
+    const{error, data, count } = await supabase
+    .from("Buku")
+    .select('*', {count: 'exact' })
+    if (count) jml_buku.value = count
+  }
+
+onMounted(() => {
+  getjml_pengunjung()
+  getjml_buku( )
+})
+
+</script>
   
   
   <style scoped>

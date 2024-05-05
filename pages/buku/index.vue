@@ -12,10 +12,10 @@
             />
           </form>
         </div>
-        <div class="my-3 text-muted">menampilkan 4 dari 125</div>
+        <div class="my-3 text-muted">menampilkan 30 dari 30</div>
         <div class="row justify-content-evenly">
           <div v-for="(buku, i) in books" :key="i" class="col-lg-2">
-          <nuxt-link to="/buku/${buku.id}">
+          <nuxt-link :to="`/buku/${buku.id}`">
               <div class="card mb-3">
                 <div class="card-body">
                   <img :src="buku.cover" class="cover" :alt="buku.judul" />
@@ -44,7 +44,6 @@ onMounted(() => {
   getBuku()
 })
 </script>
-
 <style scoped>
 .card-body {
   width: 100%;
@@ -57,10 +56,10 @@ onMounted(() => {
   object-fit: cover;
   object-position: 0 30;
 }
-.form-control{
-  background-color: rgb(172, 169, 175);
+.form-control {
+  background-color: #D9D9D9;
 }
-.form-kembali{
-  background-color: rgb(172, 169, 175);
+.btn {
+  background-color: #D9D9D9;
 }
 </style>
